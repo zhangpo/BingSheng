@@ -1,0 +1,82 @@
+//
+// Prefix header for all source files of the 'BookSystem' target in the 'BookSystem' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iPhone SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    
+#endif
+#import "UIKitUtil.h"
+#import "RTLabel.h"
+#ifndef AiBa_ABThreadUtil_h
+#define AiBa_ABThreadUtil_h
+
+static void bs_dispatch_sync_on_main_thread(dispatch_block_t block) {
+    if ([NSThread isMainThread]) {
+        block();
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), block);
+    }
+}
+
+#endif
+
+@interface NSString(PathExtensions)
+
+- (NSString *)documentPath;
+- (NSString *)hostName;
+- (NSDictionary *)account;
+- (NSString *)bundlePath;
+
+@end
+
+@implementation NSString(PathExtensions)
+
+- (NSString *)documentPath{
+    NSArray *docPaths =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *docPath = [docPaths objectAtIndex:0];
+    NSString *path = [docPath stringByAppendingPathComponent:self];
+    
+    
+    return path;
+}
+
+- (NSString *)hostName{
+    //  @"ftp://shipader:shipader123@61.174.28.122/BookSystem/"
+    
+    NSString *str = [[[[self componentsSeparatedByString:@"://"] objectAtIndex:1] componentsSeparatedByString:@"/"] objectAtIndex:0];
+    NSArray *ary = [str componentsSeparatedByString:@"@"];
+    if (1==ary.count)
+        return str;
+    else
+        return [ary objectAtIndex:1];
+}
+
+- (NSDictionary *)account{
+    NSString *str = [[[[self componentsSeparatedByString:@"://"] objectAtIndex:1] componentsSeparatedByString:@"/"] objectAtIndex:0];
+    NSArray *ary = [str componentsSeparatedByString:@"@"];
+    if (1==ary.count)
+        return nil;
+    else{
+        NSString *strinfo = [ary objectAtIndex:0];
+        ary = [strinfo componentsSeparatedByString:@":"];
+        if (ary.count==2){
+            return [NSDictionary dictionaryWithObjectsAndKeys:[ary objectAtIndex:0],@"username",[ary objectAtIndex:1],@"password",nil];
+        }else
+            return nil;
+        
+    }
+}
+
+- (NSString *)bundlePath{
+    return [[NSBundle mainBundle] pathForResource:self ofType:nil];
+}
+
+@end

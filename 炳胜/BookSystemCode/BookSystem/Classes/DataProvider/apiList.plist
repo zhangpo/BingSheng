@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>baseUrl</key>
+	<string>http://61.174.28.122:8010/cmenu/CmenuServices.asmx/</string>
+	<key>pChuck</key>
+	<string>pChuckC</string>
+	<key>pEnterSubscribeTab</key>
+	<string>pEntersubscribetabC</string>
+	<key>pFreeGet</key>
+	<string>pFreeGetC</string>
+	<key>pGogo</key>
+	<string>pGogoC</string>
+	<key>pGotoTab</key>
+	<string>pGotoTabC</string>
+	<key>pListTable</key>
+	<string>pListTableC</string>
+	<key>pOver</key>
+	<string>pOverC</string>
+	<key>pListSubscribeTab</key>
+	<string>pListsubscribetabC</string>
+	<key>pPrintQuery</key>
+	<string>pPrintqueryC</string>
+	<key>pQuery</key>
+	<string>pQueryC</string>
+	<key>pRebate</key>
+	<string>pRebateC</string>
+	<key>pSendTab</key>
+	<string>pSendtabC</string>
+	<key>pSignTeb</key>
+	<string>pSigntebC</string>
+	<key>pStart</key>
+	<string>pStartC</string>
+	<key>pCommentFood</key>
+	<string>pSubmitItemEvaluation</string>
+	<key>pGetFoodComment</key>
+	<string>pGetItemEvaluation</string>
+	<key>pGetFoodVideo</key>
+	<string>pGetItemVideoPath</string>
+	<key>pListSubscribeOfTable</key>
+	<string>pListsubscribetab</string>
+	<key>pListResv</key>
+	<string>pListResv</string>
+	<key>pLoginUser</key>
+	<string>pLogin</string>
+	<key>checkFoodAvailable</key>
+	<string>pFreeGetC</string>
+</dict>
+</plist>
